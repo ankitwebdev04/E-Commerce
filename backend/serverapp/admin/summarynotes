@@ -1,0 +1,44 @@
+       STATEMODEL.JS
+mongoose:-Mongoose is an Object Data Modeling (ODM) library that provides a schema-based solution to model your application data.
+
+Schema:-The Schema constructor is used to define the structure of documents within a MongoDB collection.
+
+New Schema:-new Schema({...}): Creates a new Mongoose schema instance. A schema defines the structure and type of data that can be stored in a MongoDB collection.
+
+collection:-collection: 'state': Specifies the name of the MongoDB collection where documents of this schema will be stored. In this case, the collection is named 'state'.
+
+module.exports: Exports the Mongoose model so that it can be imported and used in other files.
+
+mongoose.model('State', State): Creates a Mongoose model named 'State' based on the State schema. A model is a wrapper for the schema and provides an interface to interact with the MongoDB collection (in this case, the 'state' collection). The model is used to create, read, update, and delete documents in the collection.
+
+                STATEROUTE.JS
+
+require('express'): Imports the Express library, a popular web framework for Node.js used to build web applications and APIs.
+
+Router is used to define routes for the application. It is a mini Express application that can be used to handle routes for a specific part of your app.    
+
+stateRoute.route('/save'): Defines a new route at the path '/save'. The route() method is used to define a route endpoint for a specific HTTP path.
+
+req: Represents the HTTP request and contains data sent by the client, such as form data, query parameters, etc.
+res: Represents the HTTP response and is used to send data back to the client.
+
+req.body contains the JSON data sent by the client in the POST request. This data is used to create a new state document.
+
+state.save(): Calls the save() method on the state object, which saves the new state document to the MongoDB database.
+
+.then(state => {...}): Handles the promise returned by save(). If the save operation is successful, the callback function inside then() is executed.
+
+
+import React, { useState }: Imports React and the useState hook from the React library. useState is a hook that allows you to add state to a functional component.
+
+import axios from "axios";: Imports the axios library, which is used to make HTTP requests from the client to a server.
+
+function Statemgt(): Defines a functional component in React named Statemgt. This component will contain the logic and UI for managing state information.
+
+const [stid, setStId] = useState();: Creates a state variable stid with an initial value of undefined and a function setStId to update it. This stores the state ID.
+
+const [stlist, setStList] = useState([]);: Creates a state variable stlist initialized as an empty array. This will store a list of states.
+
+const [isupdatestname, setIsUpdateStName] = useState(false);: Creates a boolean state variable to track if the state name is being updated.
+const [isupdatestatus, setIsUpdateStatus] = useState(false);: Creates a boolean state variable to track if the status is being updated.
+
